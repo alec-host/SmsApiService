@@ -22,7 +22,6 @@ namespace PUSH_SMS_SERVICE
         {
             await Task.Run(()=>{
                 Console.Out.WriteLine(json);
-
                 //-.Routine call.
                 string serverResponse = apiPostInterface.SendSms("", "");
                 //-.Publish 3rd-party sms providers response to mq.

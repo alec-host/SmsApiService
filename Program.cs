@@ -16,6 +16,8 @@ namespace PUSH_SMS_SERVICE
 
         private static async void RunAsConsoleAsync()
         {
+            //-.read mq sms command.
+
             //-.DI using constructor injection.
             IApiPostInterface bulkSmsService = new BulkSmsService();
             //-.http post.
