@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace PUSH_SMS_SERVICE
 {
-    class HttpHandle 
+    class ApiHttpHandler 
     {
         ApiPostInterface apiPostInterface;
-        public HttpHandle(ApiPostInterface apiPostInterface)
+        public ApiHttpHandler(ApiPostInterface apiPostInterface)
         {
             this.apiPostInterface = apiPostInterface;
         }

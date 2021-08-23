@@ -19,17 +19,19 @@ namespace PUSH_SMS_SERVICE
         {
             //-.DI using constructor injection.
             ApiPostInterface bulkSmsService = new BulkSmsService();
-            string response = await new HttpHandle(bulkSmsService).SmsService("input value");
+            //-..
+            string response = await new ApiHttpHandler(bulkSmsService).SmsService("input value");
             Console.Out.WriteLine(response);
         }
         /*
-        test method. 
+        test method 1. 
         */
         public int Addition(int number1, int number2)
         {
-            int result = number1 + number2;
+            int result = (number1 + number2);
 
             return result;
         }
+
     }
 }
