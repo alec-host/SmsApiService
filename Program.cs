@@ -10,7 +10,7 @@ namespace PUSH_SMS_SERVICE
     {
         static void Main(string[] args)
         {
-            Console.Out.WriteLine("kkkkkkkkkkkkkk");
+            Console.Out.WriteLine("start section");
             RunAsConsoleAsync();
             Console.In.ReadLine();
         }
@@ -19,7 +19,7 @@ namespace PUSH_SMS_SERVICE
         {
             //-.DI using constructor injection.
             ApiPostInterface bulkSmsService = new BulkSmsService();
-            string response = await new HttpHandle(bulkSmsService).SmsService("dssgfghhghg");
+            string response = await new HttpHandle(bulkSmsService).SmsService("input value");
             Console.Out.WriteLine(response);
         }
     }
