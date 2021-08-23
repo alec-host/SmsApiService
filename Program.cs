@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PUSH_SMS_SERVICE
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -21,6 +21,15 @@ namespace PUSH_SMS_SERVICE
             ApiPostInterface bulkSmsService = new BulkSmsService();
             string response = await new HttpHandle(bulkSmsService).SmsService("input value");
             Console.Out.WriteLine(response);
+        }
+        /*
+        test method. 
+        */
+        public int Addition(int number1, int number2)
+        {
+            int result = number1 + number2;
+
+            return result;
         }
     }
 }
