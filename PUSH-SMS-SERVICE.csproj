@@ -244,8 +244,12 @@
     <Compile Include="LoggerInterface.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".circleci\config.yml" />
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Uno.Core.Build.2.0.0\build\Uno.Core.Build.targets" Condition="Exists('packages\Uno.Core.Build.2.0.0\build\Uno.Core.Build.targets')" />
