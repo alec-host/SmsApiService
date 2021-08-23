@@ -1,6 +1,6 @@
 ﻿namespace PUSH_SMS_SERVICE
 {
-    interface DeliveryStatusInterface
+    interface IDeliveryStatusInterface
     {
         string GetSmsStatus(string messageReferenceNumber);
     }

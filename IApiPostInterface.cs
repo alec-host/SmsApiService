@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PUSH_SMS_SERVICE
 {
-    interface ApiPostInterface
+    interface IApiPostInterface
     {
         string SendSms(string msisdn,string textSms);
     }

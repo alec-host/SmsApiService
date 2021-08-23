@@ -9,8 +9,8 @@ namespace PUSH_SMS_SERVICE
 {
     class ApiHttpHandler 
     {
-        ApiPostInterface apiPostInterface;
-        public ApiHttpHandler(ApiPostInterface apiPostInterface)
+        IApiPostInterface apiPostInterface;
+        public ApiHttpHandler(IApiPostInterface apiPostInterface)
         {
             this.apiPostInterface = apiPostInterface;
         }
@@ -18,17 +18,18 @@ namespace PUSH_SMS_SERVICE
         @method: SmsService.
         Param[s]: @json: string
         */
-        public async Task<string> SmsService(string json)
+        public async Task SmsService(string json)
         {
-            string serverResponse;
             await Task.Run(()=>{
                 Console.Out.WriteLine(json);
-                //-.routine call.
-                serverResponse = apiPostInterface.SendSms("", "");
-                Task.Delay(150).Wait();
-            });
+                //-.Routine call.
+                string serverResponse = apiPostInterface.SendSms("", "");
+                //-.Publish 3rd-party sms providers response to mq.
+                new MessageQueueService().SmsServerResponsePub(serverResponse);
+                Task.Delay(50).Wait();
 
-            return "END_SERVICE";
+                return serverResponse;
+            });
         }
     }
 }

@@ -235,13 +235,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiPostInterface.cs" />
+    <Compile Include="IApiPostInterface.cs" />
     <Compile Include="BulkSmsService.cs" />
-    <Compile Include="HttpHandle.cs" />
+    <Compile Include="ApiHttpHandler .cs" />
+    <Compile Include="IMessageQueueInterface.cs" />
+    <Compile Include="MessageQueueService.cs" />
+    <Compile Include="Payload.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DeliveryStatusInterface.cs" />
-    <Compile Include="LoggerInterface.cs" />
+    <Compile Include="IDeliveryStatusInterface.cs" />
+    <Compile Include="ILoggerInterface.cs" />
+    <Compile Include="PublishServerResponseHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".circleci\config.yml" />

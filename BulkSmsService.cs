@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace PUSH_SMS_SERVICE
 {
-    class BulkSmsService : ApiPostInterface
+    class BulkSmsService : IApiPostInterface
     {
         public string SendSms(string msisdn, string textSms)
         {
-            throw new NotImplementedException();
-            //return String.Empty;
+            //throw new NotImplementedException();
+            return String.Empty;
         }
     }
 }
