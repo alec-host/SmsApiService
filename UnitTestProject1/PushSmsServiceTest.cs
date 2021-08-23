@@ -19,5 +19,21 @@ namespace UnitTestProject1
 
             Assert.AreEqual(15, check);
         }
+        [TestMethod]
+        public void ConsumerMqValueTest()
+        {
+
+            var payload = Program.MqConsumer();
+
+            Assert.IsNotNull(payload);
+        }
+        [TestMethod]
+        public void SmsServiceTest()
+        {
+
+            Program.InvokeSmsSend("");
+
+            Assert.AreNotEqual("","");
+        }
     }
 }

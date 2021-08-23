@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PUSH_SMS_SERVICE
@@ -16,16 +13,36 @@ namespace PUSH_SMS_SERVICE
 
         private static async void RunAsConsoleAsync()
         {
-            //-.read mq sms command.
+            //-.read sms command from mq.
+            string payload = await MqConsumer();
+            //-.send sms.
+            string serverResponse = await InvokeSmsSend(payload);
+        }
 
+        public static async Task<string> MqConsumer()
+        {
             //-.DI using constructor injection.
-            IApiPostInterface bulkSmsService = new BulkSmsService();
-            //-.http post.
-            await new ApiHttpHandler(bulkSmsService).SmsService("input value 444");
-            //Console.Out.WriteLine(response);
+            IMessageQueueSubInterface messageQueueService = new MessageQueueService();
+            //-.read mq sms command.
+            string payload = await new SmsCommandService(messageQueueService).GetSmsCommand();
+
+            return payload;
+        }
+
+        public static async Task<string> InvokeSmsSend(string payload)
+        {
+            string serverResponse = String.Empty;
+            if (payload != "")
+            {
+                //-.DI using constructor injection.
+                IApiPostInterface bulkSmsService = new BulkSmsService();
+                //-.http post.
+                serverResponse = await new ApiHttpHandler(bulkSmsService).SmsService(payload);
+            }
+            return serverResponse;
         }
         /*
-        test method 1. 
+        simple test calc. 
         */
         public int Addition(int number1, int number2)
         {
@@ -33,6 +50,5 @@ namespace PUSH_SMS_SERVICE
 
             return result;
         }
-
     }
 }

@@ -4,9 +4,11 @@ namespace PUSH_SMS_SERVICE
 {
     class MessageQueueService : IMessageQueuePubInterface,IMessageQueueSubInterface
     {
-        public void SmsNotificationSub()
+        public string SmsNotificationSub()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            Console.WriteLine("SMS COMMAND SUB");
+            return "No implemented";
         }
 
         public void SmsServerResponsePub(string serverResponse)

@@ -246,6 +246,7 @@
     <Compile Include="IDeliveryStatusInterface.cs" />
     <Compile Include="ILoggerInterface.cs" />
     <Compile Include="PublishServerResponseHandler.cs" />
+    <Compile Include="SmsCommandService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".circleci\config.yml" />

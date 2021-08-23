@@ -7,6 +7,6 @@
 
     interface IMessageQueueSubInterface
     {
-        void SmsNotificationSub();
+        string SmsNotificationSub();
     }
 }
