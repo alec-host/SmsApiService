@@ -10,8 +10,8 @@ namespace PUSH_SMS_SERVICE
     {
         public string SendSms(string msisdn, string textSms)
         {
-            //throw new NotImplementedException();
-            return String.Empty;
+            throw new NotImplementedException();
+            //return String.Empty;
         }
     }
 }
