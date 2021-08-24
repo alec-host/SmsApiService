@@ -7,17 +7,15 @@ namespace PUSH_SMS_SERVICE
         public string SmsNotificationSub()
         {
             //throw new NotImplementedException();
-            Console.WriteLine("SMS COMMAND SUB");
-            return "No implemented";
+
+            return "SMS_NOTIFICATION_SUB";
         }
 
         public void SmsServerResponsePub(string serverResponse)
         {
-            if (serverResponse != null)
-            {
-                Console.Out.WriteLine("PUB METHOD");
-            }
             //throw new System.NotImplementedException();
+
+            Console.Out.WriteLine("3. PUBLISH SERVER RESPONSE FROM "+serverResponse);
         }
     }
 }

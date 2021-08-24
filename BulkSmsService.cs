@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PUSH_SMS_SERVICE
 {
@@ -11,7 +7,8 @@ namespace PUSH_SMS_SERVICE
         public string SendSms(string msisdn, string textSms)
         {
             //throw new NotImplementedException();
-            return String.Empty;
+
+            return "SENT_SMS";
         }
     }
 }

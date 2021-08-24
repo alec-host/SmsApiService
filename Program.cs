@@ -15,6 +15,8 @@ namespace PUSH_SMS_SERVICE
         {
             //-.read sms command from mq.
             string payload = await MqConsumer();
+            //-..
+            payload = "{'phoneNumber':'254721110000','smsText': 'test message'}";
             //-.send sms.
             string serverResponse = await InvokeSmsSend(payload);
         }
@@ -32,12 +34,14 @@ namespace PUSH_SMS_SERVICE
         public static async Task<string> InvokeSmsSend(string payload)
         {
             string serverResponse = String.Empty;
-            if (payload != "")
+            if (payload != "" || payload == null)
             {
+                Payload newPayload = new Payload();
+                newPayload.Text = payload;
                 //-.DI using constructor injection.
                 IApiPostInterface bulkSmsService = new BulkSmsService();
                 //-.http post.
-                serverResponse = await new ApiHttpHandler(bulkSmsService).SmsService(payload);
+                serverResponse = await new ApiHttpHandler(bulkSmsService).SmsService(newPayload);
             }
             return serverResponse;
         }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace PUSH_SMS_SERVICE
 {
@@ -6,12 +7,18 @@ namespace PUSH_SMS_SERVICE
     {
         //-.DI using constructor injection.
         readonly IMessageQueueSubInterface MessageQueueSubInterface;
+        //-.constructor.
         public SmsCommandService(IMessageQueueSubInterface messageQueueSubInterface)
         {
             this.MessageQueueSubInterface = messageQueueSubInterface;
         }
+        /*
+        @method: GetSmsCommand.
+        Param[s]: none.
+        */
         public async Task<string> GetSmsCommand()
         {
+            Console.Out.WriteLine("1. getsmscommand SUBSCRIBER");
             await Task.Run(() => {
                 //-.Routine call.
                 string cmd = MessageQueueSubInterface.SmsNotificationSub();
@@ -21,7 +28,7 @@ namespace PUSH_SMS_SERVICE
                 return cmd;
             });
 
-            return "END_SMS_SERVICE";
+            return "END_READ_SMS_COMMAND";
         }
     }
 }

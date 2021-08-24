@@ -30,10 +30,19 @@ namespace UnitTestProject1
         [TestMethod]
         public void SmsServiceTest()
         {
+            var command = "{'phoneNumber':'254721110000','smsText': 'test message'}";
+            var serverResponse = Program.InvokeSmsSend(command);
 
-            Program.InvokeSmsSend("");
+            Assert.AreNotEqual(serverResponse, "");
+        }
+        [TestMethod]
+        public void SmsServiceMockTest()
+        {
+            Mock<Program.InvokeSmsSend> mock = new Mock<Program.InvokeSmsSend>;
+            var command = "{'phoneNumber':'254721110000','smsText': 'test message'}";
+            var serverResponse = Program.InvokeSmsSend(command);
 
-            Assert.AreNotEqual("","");
+            Assert.AreNotEqual(serverResponse, "");
         }
     }
 }
