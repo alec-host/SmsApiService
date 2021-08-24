@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using PUSH_SMS_SERVICE;
 
 namespace UnitTestProject1
@@ -38,11 +39,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void SmsServiceMockTest()
         {
-            Mock<Program.InvokeSmsSend> mock = new Mock<Program.InvokeSmsSend>;
-            var command = "{'phoneNumber':'254721110000','smsText': 'test message'}";
-            var serverResponse = Program.InvokeSmsSend(command);
-
-            Assert.AreNotEqual(serverResponse, "");
+           
         }
     }
 }
