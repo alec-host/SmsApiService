@@ -19,6 +19,8 @@ namespace PUSH_SMS_SERVICE
             payload = "{'phoneNumber':'254721110000','smsText': 'test message'}";
             //-.send sms.
             string serverResponse = await InvokeSmsSend(payload);
+            //-.publish server response.
+            MqPublisher(serverResponse);
         }
 
         public static async Task<string> MqConsumer()
@@ -29,6 +31,14 @@ namespace PUSH_SMS_SERVICE
             string payload = await new SmsCommandService(messageQueueService).GetSmsCommand();
 
             return payload;
+        }
+
+        public static void MqPublisher(string serverResponse) {
+            if (serverResponse != null || serverResponse != "")
+            {
+                //-.Publish 3rd-party sms providers response to mq.
+                new MessageQueueService().SmsServerResponsePub(serverResponse);
+            }
         }
 
         public static async Task<string> InvokeSmsSend(string payload)

@@ -29,8 +29,6 @@ namespace PUSH_SMS_SERVICE
                 {
                     //-.Routine call.
                     string serverResponse = apiPostInterface.SendSms(obj["phoneNumber"].ToString(), obj["smsText"].ToString());
-                    //-.Publish 3rd-party sms providers response to mq.
-                    new MessageQueueService().SmsServerResponsePub(serverResponse);
 
                     Task.Delay(100).Wait();
 
